@@ -172,7 +172,8 @@ public class SimulatedAnnealing {
 
     public static void drawTour(Tour tour) {
         Runnable r = () -> {
-            LineComponent lineComponent = new LineComponent(400,400);
+            LineComponent lineComponent = new LineComponent(500,400);
+            lineComponent.setTour(tour);
             int scale = 5;
             for(int i = 0; i<tour.tourSize()-1;i++){
                 lineComponent.addLine(tour.getCity(i).x*scale, tour.getCity(i).y*scale, tour.getCity(i+1).x*scale, tour.getCity(i+1).y*scale);

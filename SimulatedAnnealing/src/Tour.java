@@ -26,7 +26,7 @@ public class Tour{
     }
 
     // Returns tour information
-    public ArrayList getTour(){
+    public ArrayList<City> getTour(){
         return tour;
     }
 
