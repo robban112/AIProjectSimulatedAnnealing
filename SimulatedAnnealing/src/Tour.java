@@ -5,11 +5,12 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 public class Tour{
 
     // Holds our tour of cities
-    private ArrayList tour = new ArrayList<City>();
+    private ArrayList<City> tour = new ArrayList<City>();
     // Cache
     private int distance = 0;
 
@@ -28,6 +29,22 @@ public class Tour{
     // Returns tour information
     public ArrayList<City> getTour(){
         return tour;
+    }
+
+    public void fixStartingPosition() {
+        City start = TourManager.getCity(3);
+        ArrayList<City> tailCities = new ArrayList<>();
+
+        Iterator<City> it = tour.iterator();
+        while(it.hasNext()) {
+            City curr = it.next();
+            if(start == curr) {
+                break;
+            }
+            tailCities.add(curr);
+            it.remove();
+        }
+        tour.addAll(tailCities);
     }
 
     // Creates a random individual
@@ -67,7 +84,7 @@ public class Tour{
                 if(cityIndex+1 < tourSize()){
                     destinationCity = getCity(cityIndex+1);
                 }
-                else{
+                else {
                     destinationCity = getCity(0);
                 }
                 // Get the distance between the two cities

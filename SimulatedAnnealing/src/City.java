@@ -33,10 +33,10 @@ public class City {
     }
 
     // Gets the distance to given city
-    public double distanceTo(City city){
+    public int distanceTo(City city){
         int xDistance = Math.abs(getX() - city.getX());
         int yDistance = Math.abs(getY() - city.getY());
-        double distance = Math.sqrt( (xDistance*xDistance) + (yDistance*yDistance) );
+        int distance = (int) Math.sqrt( (xDistance*xDistance) + (yDistance*yDistance) );
 
         return distance;
     }

@@ -14,7 +14,7 @@ class DrawLines {
     public static void main(String[] args) {
 
         Runnable r = () -> {
-            LineComponent lineComponent = new LineComponent(400,400);
+            LineComponent lineComponent = new LineComponent(600,600);
             for (int ii=0; ii<30; ii++) {
                 lineComponent.addLine(2,2, 3, 3);
             }
@@ -28,7 +28,6 @@ class LineComponent extends JComponent {
 
     ArrayList<Line2D.Double> lines;
     Tour tour;
-    Random random;
 
     LineComponent(int width, int height) {
         super();
@@ -55,14 +54,10 @@ class LineComponent extends JComponent {
         for (Line2D.Double line : lines) {
             g.drawLine(
                     (int)line.getX1(),
-                    500-(int)line.getY1(),
+                    400-(int)line.getY1(),
                     (int)line.getX2(),
-                    500-(int)line.getY2()
+                    400-(int)line.getY2()
             );
-        }
-        g.setColor(Color.red);
-        for(City city : tour.getTour()) {
-            g.drawString(city.name, city.x*5, 500-city.y*5+5);
         }
     }
 }
